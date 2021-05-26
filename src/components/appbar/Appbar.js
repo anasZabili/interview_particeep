@@ -3,7 +3,6 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import { AppBar as UIAppBar, Box, Typography } from "@material-ui/core";
-import { useHistory } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,10 +20,9 @@ const useStyles = makeStyles((theme) => ({
 function AppBarComponent(props) {
   const { buttons, logoUrl } = props;
   const classes = useStyles();
-  const history = useHistory();
 
   const handleClick = () => {
-    history.push("/");
+    // Nothing;
   };
   return (
     <UIAppBar position="static" className="my-app-bar">
