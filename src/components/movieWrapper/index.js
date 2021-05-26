@@ -6,7 +6,6 @@ import CategoryFilter from "../categoryFilter";
 const MovieWrapper = () => {
   const [movies, setMovies] = useState(null);
   const [displayMovies, setDisplayMovies] = useState(movies);
-  console.log("🚀 ~ file: index.js ~ line 7 ~ MovieWrapper ~ movies", movies);
 
   // Fetch des données au montage du composant
   useEffect(() => {
@@ -27,18 +26,9 @@ const MovieWrapper = () => {
     if (!movies || movies?.length === 0) return;
     if (!displayMovies || displayMovies?.length === 0) return;
     setDisplayMovies((prevState) => {
-      console.log(
-        "🚀 ~ file: index.js ~ line 29 ~ setDisplayMovies ~ prevState",
-        prevState
-      );
-      console.log(movies);
       const newState = prevState?.filter((value) => {
         return movies.some((valueMovies) => value.id === valueMovies.id);
       });
-      console.log(
-        "🚀 ~ file: index.js ~ line 32 ~ newState ~ newState",
-        newState
-      );
       return [...newState];
     });
   }, [movies]);

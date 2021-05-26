@@ -47,14 +47,8 @@ const MovieCard = ({ movie, setMovies }) => {
   const handleDelete = () => {
     setMovies((prevState) => {
       const newState = prevState.filter((value) => {
-        console.log(
-          "🚀 ~ file: MovieCard.js ~ line 50 ~ prevState.filter ~ value",
-          value
-        );
-        console.log(movie);
         return value.id !== movie.id;
       });
-      console.log(prevState);
       return [...newState];
     });
   };

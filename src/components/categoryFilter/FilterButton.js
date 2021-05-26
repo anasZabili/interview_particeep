@@ -35,14 +35,6 @@ const FilterButton = ({
       const moviesClone = [...movies];
       if (!event.target.value) return moviesClone;
       const newState = moviesClone?.filter((value, index) => {
-        console.log(
-          "🚀 ~ file: FilterButton.js ~ line 36 ~ moviesClone?.filter ~ value",
-          value
-        );
-        console.log(
-          "🚀 ~ file: FilterButton.js ~ line 38 ~ moviesClone?.filter ~ category",
-          category
-        );
         return value.category === event.target.value;
       });
       return newState;
