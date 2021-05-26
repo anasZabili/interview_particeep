@@ -66,11 +66,11 @@ const MovieCard = ({ movie, setMovies }) => {
           />
         </CardContent>
         <CardActions disableSpacing>
-          <IconButton aria-label="Like" onClick={handleLike}>
-            {movie.isLike ? <FavoriteIcon color="error" /> : <FavoriteIcon />}
-          </IconButton>
           <IconButton aria-label="Supprimer" onClick={handleDelete}>
             <DeleteIcon color="error" />
+          </IconButton>
+          <IconButton aria-label="Like" onClick={handleLike}>
+            {movie.isLike ? <FavoriteIcon color="error" /> : <FavoriteIcon />}
           </IconButton>
         </CardActions>
       </Card>
