@@ -5,7 +5,8 @@ import CategoryFilter from "../categoryFilter";
 
 const MovieWrapper = () => {
   const [movies, setMovies] = useState(null);
-  const [displayMovies, setDisplayMovies] = useState(movies);
+  console.log("🚀 ~ file: index.js ~ line 8 ~ MovieWrapper ~ movies", movies);
+  const [displayMovies, setDisplayMovies] = useState(null);
 
   // Fetch des données au montage du composant
   useEffect(() => {
@@ -23,8 +24,8 @@ const MovieWrapper = () => {
   // mise à jour des film affiché si la liste des film change (dans le cas
   // d'une suppression dans le cas de notre application)
   useEffect(() => {
-    if (!movies || movies?.length === 0) return;
-    if (!displayMovies || displayMovies?.length === 0) return;
+    if (!movies) return;
+    if (!displayMovies) return;
     setDisplayMovies((prevState) => {
       const newState = prevState?.filter((value) => {
         return movies.some((valueMovies) => value.id === valueMovies.id);

@@ -46,7 +46,7 @@ const MovieCard = ({ movie, setMovies }) => {
   };
   const handleDelete = () => {
     setMovies((prevState) => {
-      const newState = prevState.filter((value) => {
+      const newState = prevState?.filter((value) => {
         return value.id !== movie.id;
       });
       return [...newState];
