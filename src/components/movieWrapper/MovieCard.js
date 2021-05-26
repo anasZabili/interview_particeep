@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core";
 
 import FavoriteIcon from "@material-ui/icons/Favorite";
+// import DeleteIcon from "@material-ui/icons/DeleteIcon";
 
 const useStyles = makeStyles({
   title: {
@@ -61,9 +62,12 @@ const MovieCard = ({ movie, setMovies, movies }) => {
           />
         </CardContent>
         <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites" onClick={handleClick}>
+          <IconButton aria-label="Like" onClick={handleClick}>
             {movie.isLike ? <FavoriteIcon color="error" /> : <FavoriteIcon />}
           </IconButton>
+          {/* <IconButton aria-label="Supprimer" onClick={handleClick}>
+            <DeleteIcon color="error" />
+          </IconButton> */}
         </CardActions>
       </Card>
     </Grid>

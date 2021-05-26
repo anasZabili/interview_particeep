@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import Content from "./Content";
 import { movies$ } from "../../movie";
+import CategoryFilter from "../categoryFilter";
 
 const MovieWrapper = () => {
   const [movies, setMovies] = useState(null);
+  const [displayMovies, setDisplayMovies] = useState(movies);
   console.log("🚀 ~ file: index.js ~ line 7 ~ MovieWrapper ~ movies", movies);
   useEffect(() => {
     movies$.then((res) => {
@@ -13,12 +15,21 @@ const MovieWrapper = () => {
         return { ...movie, isLike: false };
       });
       setMovies(moviesWithLike);
+      setDisplayMovies(moviesWithLike);
     });
   }, []);
 
   return (
     <>
-      <Content movies={movies} setMovies={setMovies} />
+      {movies && (
+        <CategoryFilter
+          movies={movies}
+          setMovies={setMovies}
+          displayMovies={displayMovies}
+          setDisplayMovies={setDisplayMovies}
+        />
+      )}
+      <Content movies={displayMovies} setMovies={setMovies} />
     </>
   );
 };
