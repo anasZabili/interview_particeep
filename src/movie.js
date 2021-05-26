@@ -66,8 +66,8 @@ const movies = [
     id: "10",
     title: "Gone Girl",
     category: "Thriller",
-    likes: 22,
-    dislikes: 12,
+    likes: 2,
+    dislikes: 1,
   },
 ];
 
