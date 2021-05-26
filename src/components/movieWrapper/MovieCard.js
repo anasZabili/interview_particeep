@@ -12,7 +12,7 @@ import {
 } from "@material-ui/core";
 
 import FavoriteIcon from "@material-ui/icons/Favorite";
-// import DeleteIcon from "@material-ui/icons/DeleteIcon";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 const useStyles = makeStyles({
   title: {
@@ -26,19 +26,15 @@ const useStyles = makeStyles({
   },
 });
 
-const MovieCard = ({ movie, setMovies, movies }) => {
+const MovieCard = ({ movie, setMovies }) => {
   const classes = useStyles();
   const totalLike = movie.likes + movie.dislikes;
   const likeProportion = useMemo(
     () => (movie.likes / totalLike) * 100,
     [movie.likes, totalLike]
   );
-  console.log(
-    "🚀 ~ file: MovieCard.js ~ line 35 ~ MovieCard ~ likeProportion",
-    likeProportion
-  );
 
-  const handleClick = () => {
+  const handleLike = () => {
     setMovies((prevState) => {
       const movieToLike = prevState.find((value) => value.id === movie.id);
       movieToLike.isLike = !movieToLike.isLike;
@@ -46,6 +42,20 @@ const MovieCard = ({ movie, setMovies, movies }) => {
         ? movieToLike.likes + 1
         : movieToLike.likes - 1;
       return [...prevState];
+    });
+  };
+  const handleDelete = () => {
+    setMovies((prevState) => {
+      const newState = prevState.filter((value) => {
+        console.log(
+          "🚀 ~ file: MovieCard.js ~ line 50 ~ prevState.filter ~ value",
+          value
+        );
+        console.log(movie);
+        return value.id !== movie.id;
+      });
+      console.log(prevState);
+      return [...newState];
     });
   };
 
@@ -62,12 +72,12 @@ const MovieCard = ({ movie, setMovies, movies }) => {
           />
         </CardContent>
         <CardActions disableSpacing>
-          <IconButton aria-label="Like" onClick={handleClick}>
+          <IconButton aria-label="Like" onClick={handleLike}>
             {movie.isLike ? <FavoriteIcon color="error" /> : <FavoriteIcon />}
           </IconButton>
-          {/* <IconButton aria-label="Supprimer" onClick={handleClick}>
+          <IconButton aria-label="Supprimer" onClick={handleDelete}>
             <DeleteIcon color="error" />
-          </IconButton> */}
+          </IconButton>
         </CardActions>
       </Card>
     </Grid>
