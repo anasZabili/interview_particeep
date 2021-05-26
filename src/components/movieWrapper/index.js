@@ -5,8 +5,7 @@ import CategoryFilter from "../categoryFilter";
 
 const MovieWrapper = () => {
   const [movies, setMovies] = useState(null);
-  console.log("🚀 ~ file: index.js ~ line 8 ~ MovieWrapper ~ movies", movies);
-  const [displayMovies, setDisplayMovies] = useState(null);
+  const [displayMovies, setDisplayMovies] = useState(movies);
 
   // Fetch des données au montage du composant
   useEffect(() => {
