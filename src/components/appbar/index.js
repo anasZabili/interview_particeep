@@ -1,7 +1,7 @@
-import AppBarComponent from "./AppBar";
+import AppbarComponent from "./Appbar";
 
 const Appbar = (props) => {
-  return <AppBarComponent {...props} />;
+  return <AppbarComponent {...props} />;
 };
 
 export default Appbar;
