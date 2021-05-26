@@ -66,11 +66,11 @@ const movies = [
     id: "10",
     title: "Gone Girl",
     category: "Thriller",
-    likes: 2,
-    dislikes: 1,
+    likes: 22,
+    dislikes: 12,
   },
 ];
 
 export const movies$ = new Promise((resolve, reject) =>
-  setTimeout(resolve, 1000, movies)
+  setTimeout(resolve, 100, movies)
 );
