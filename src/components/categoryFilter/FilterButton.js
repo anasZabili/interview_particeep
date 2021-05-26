@@ -52,12 +52,10 @@ const FilterButton = ({
   return (
     <div>
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-controlled-open-select-label">
-          Categorie
-        </InputLabel>
+        <InputLabel id="category">Categorie</InputLabel>
         <Select
-          labelId="demo-controlled-open-select-label"
-          id="demo-controlled-open-select"
+          labelId="category"
+          id="category"
           open={open}
           onClose={handleClose}
           onOpen={handleOpen}
